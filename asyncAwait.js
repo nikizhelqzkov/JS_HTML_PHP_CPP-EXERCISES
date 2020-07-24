@@ -1,4 +1,4 @@
-const API = {
+const FOODNIKO = {
     "food": ["potatoes", "rise", "fish", "meat"],
     deliveryTime(name) {
         if (name === 'potatoes') {
@@ -57,15 +57,15 @@ const API = {
 
 
 async function orderFood(name, quantity, expectedTime) {
-    const available = await API.isItAvailableFood(name);
+    const available = await FOODNIKO.isItAvailableFood(name);
     if (!available) {
-        return API.cancelOrder(name);
+        return FOODNIKO.cancelOrder(name);
     }
-    const validTime = await API.isItValidTime(name, expectedTime)
+    const validTime = await FOODNIKO.isItValidTime(name, expectedTime)
     if (!validTime) {
-        return API.cancelOrder(name);
+        return FOODNIKO.cancelOrder(name);
     }
-    return API.placeOrder(name, quantity);
+    return FOODNIKO.placeOrder(name, quantity);
 }
 
 orderFood('potatoes', 9, 10);
