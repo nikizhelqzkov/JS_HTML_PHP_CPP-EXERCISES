@@ -71,3 +71,6 @@ async function orderFood(name, quantity, expectedTime) {
 orderFood('potatoes', 9, 10);
 orderFood('rise', 4, 36);
 orderFood('kavurma', 7, 25);
+orderFood('potatoes', 9, 10);
+orderFood('rise', 4, 36);
+orderFood('kavurma', 7, 25);
