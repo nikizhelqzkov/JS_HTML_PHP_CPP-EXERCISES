@@ -1,8 +1,4 @@
-//input 'Monday', 'Sauna', 15.30
-function fitness(input){
-let day = input.shift();
-let service = input.shift();
-let time = Number(input.shift());
+function fitness(day,service,time){
 let cena = 0;
 if(day == 'Monday'||day=='monday'){
     if(service == 'fitness'||service == 'Fitness'){
@@ -151,4 +147,4 @@ console.log("Error");
 
 console.log(cena);
 }
-fitness(['Sunday', 'Fitness', 22.00]);
+fitness('Sunday', 'Fitness', 22.00);
