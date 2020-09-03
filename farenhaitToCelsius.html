@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <input id="text" />
+    <button onclick="renderToCelsius()">Farenhait to Celsius</button>
+    <p id="demo"></p>
+  </body>
+  <script>
+    function toCelsius(fahrenheit) {
+      return (5 / 9) * (fahrenheit - 32);
+    }
+    function renderToCelsius(number) {
+      let n = document.getElementById('text').value;
+      document.getElementById('demo').innerHTML = toCelsius(n).toFixed(1) + ' °C';
+    }
+  </script>
+</html>
