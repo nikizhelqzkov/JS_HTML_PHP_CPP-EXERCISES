@@ -2,7 +2,7 @@
 #include <string>
 #include <cmath>
 #include <ctime>
-std::string WORD = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789~!@#$%^&*()_+=-?></][|{}№:";
+std::string WORD = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789~!@#$%^&*()_+=-?></][|{}:";
 std::string onlyLandN = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 std::string randomString(size_t lenght, std::string str)
 {
@@ -17,7 +17,8 @@ std::string randomString(size_t lenght, std::string str)
 
 int main()
 {
-    std::cout << "Most of ascii symbols random string: " << randomString(5, WORD)
-              << "\nOnly with letters and digits random string: " << randomString(5, onlyLandN) << std::endl;
+    srand(time(0));
+    std::cout << "Most of ascii symbols random string: " << randomString(rand()%(WORD.size()-1), WORD)
+              << "\nOnly with letters and digits random string: " << randomString(rand()%(onlyLandN.size()-1), onlyLandN) << std::endl;
     return 0;
 }
