@@ -32,17 +32,21 @@ isHasAnOthers = (str, other) => {
   }
   return false;
 };
+sizeStr = (left, right) => {
+  let r = Math.random() * 100;
+  while (r < left || r > right) {
+    r = Math.random() * 100;
+  }
+  return r;
+};
 easyStr = () => 'abcdefghijklmnopqrstuvwxyz';
 UpperStr = () => easyStr().toUpperCase();
 number = () => '0123456789';
 others = () => '?/>.<,;{}][|=+-_)(*&^%$#@!~`';
 function easyPassword() {
   let easyPass = easyStr();
-  let r = Math.random() * 100;
+  let r = sizeStr(8, 20);
   let str = '';
-  while (r < 8 || r > 20) {
-    r = Math.random() * 100;
-  }
   for (let index = 0; index < r; index++) {
     str += easyPass[Math.floor(Math.random() * easyPass.length)];
   }
@@ -53,11 +57,8 @@ function mediumPassword() {
   let lowLetters = easyStr();
   let upperLetters = UpperStr();
   const array = [lowLetters, upperLetters];
-  let r = Math.random() * 100;
+  let r = sizeStr(10, 30);
   let str = '';
-  while (r < 10 || r > 30) {
-    r = Math.random() * 100;
-  }
   let rand = 0;
   for (let index = 0; index < r; index++) {
     rand = Math.floor(Math.random() * array.length);
@@ -76,11 +77,8 @@ function hardPassword() {
   let upperLetters = UpperStr();
   let nums = number();
   const array = [lowLetters, upperLetters, nums];
-  let r = Math.random() * 100;
+  let r = sizeStr(12,40);
   let str = '';
-  while (r < 12 || r > 40) {
-    r = Math.random() * 100;
-  }
   let rand = 0;
   for (let index = 0; index < r; index++) {
     rand = Math.floor(Math.random() * array.length);
@@ -106,11 +104,8 @@ function ultimatePassword() {
   let nums = number();
   let oth = others();
   const array = [lowLetters, upperLetters, nums, oth];
-  let r = Math.random() * 100;
+  let r = sizeStr(15,45);
   let str = '';
-  while (r < 15 || r > 45) {
-    r = Math.random() * 100;
-  }
   let rand = 0;
   for (let index = 0; index < r; index++) {
     rand = Math.floor(Math.random() * array.length);
