@@ -39,6 +39,13 @@ sizeStr = (left, right) => {
   }
   return r;
 };
+makingStr = (arr, str, r, rand) => {
+  for (let index = 0; index < r; index++) {
+    rand = Math.floor(Math.random() * arr.length);
+    str += arr[rand][Math.floor(Math.random() * arr[rand].length)];
+  }
+  return str;
+};
 easyStr = () => 'abcdefghijklmnopqrstuvwxyz';
 UpperStr = () => easyStr().toUpperCase();
 number = () => '0123456789';
@@ -60,10 +67,7 @@ function mediumPassword() {
   let r = sizeStr(10, 30);
   let str = '';
   let rand = 0;
-  for (let index = 0; index < r; index++) {
-    rand = Math.floor(Math.random() * array.length);
-    str += array[rand][Math.floor(Math.random() * array[rand].length)];
-  }
+  str = makingStr(array, str, r, rand);
   isHasC = isHasAnUpper(str);
 
   if (!isHasC) {
@@ -77,13 +81,10 @@ function hardPassword() {
   let upperLetters = UpperStr();
   let nums = number();
   const array = [lowLetters, upperLetters, nums];
-  let r = sizeStr(12,40);
+  let r = sizeStr(12, 40);
   let str = '';
   let rand = 0;
-  for (let index = 0; index < r; index++) {
-    rand = Math.floor(Math.random() * array.length);
-    str += array[rand][Math.floor(Math.random() * array[rand].length)];
-  }
+  str = makingStr(array, str, r, rand);
   let hasACap = isHasAnUpper(str);
   let haslow = isHasALower(str);
   let hasNum = isHasANumber(str);
@@ -104,13 +105,10 @@ function ultimatePassword() {
   let nums = number();
   let oth = others();
   const array = [lowLetters, upperLetters, nums, oth];
-  let r = sizeStr(15,45);
+  let r = sizeStr(15, 45);
   let str = '';
   let rand = 0;
-  for (let index = 0; index < r; index++) {
-    rand = Math.floor(Math.random() * array.length);
-    str += array[rand][Math.floor(Math.random() * array[rand].length)];
-  }
+  str = makingStr(array, str, r, rand);
   let hasACap = isHasAnUpper(str);
   let haslow = isHasALower(str);
   let hasNum = isHasANumber(str);
@@ -124,7 +122,7 @@ function ultimatePassword() {
   if (!haslow) {
     str += array[0][Math.floor(Math.random() * array[0].length)];
   }
-  if (!isHasAnOthers) {
+  if (!hasOther) {
     str += array[3][Math.floor(Math.random() * array[3].length)];
   }
   return str;
