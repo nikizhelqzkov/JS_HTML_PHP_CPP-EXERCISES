@@ -57,7 +57,6 @@ function easyPassword() {
   for (let index = 0; index < r; index++) {
     str += easyPass[Math.floor(Math.random() * easyPass.length)];
   }
-
   return str;
 }
 function mediumPassword() {
