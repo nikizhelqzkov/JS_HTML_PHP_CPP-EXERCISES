@@ -14,19 +14,37 @@
         }
 
         .star-zone {
-           /* min-height: 30%;*/
-            border: 1px solid black;
+            /* min-height: 30%;*/
+            border: 1px solid transparent;
             width: 50%;
-           text-align: center;
-           margin: auto;
-           
+            text-align: center;
+            margin: auto;
+
+        }
+
+        span {
+            display: inline-block;
+            background-color: chartreuse;
+            color: crimson;
+            border-radius: 10%;
+            cursor: pointer;
+            padding: 10px;
+            text-decoration: none;
+            margin: 3% 46.5%;
+        }
+
+        span:hover {
+            background-color: crimson;
+            color: chartreuse;
         }
     </style>
 </head>
 
 <body>
     <h1 style="text-align: center;">Review my github</h1>
+    <a href="https://github.com/nikizhelqzkov" target="_blank"><span>Watch</span></a>
     <div class="star-zone"> <img class="star" onclick="clickF()" id="s1" src="/star-regular.svg" alt="star">
+
         <img class="star" onclick="clickF()" src="/star-regular.svg" alt="star">
         <img class="star" onclick="clickF()" src="/star-regular.svg" alt="star">
         <img class="star" onclick="clickF()" src="/star-regular.svg" alt="star">
