@@ -1,3 +1,4 @@
+"use strict";
 Object.size = function (obj) {
   var size = 0,
     key;
@@ -6,6 +7,7 @@ Object.size = function (obj) {
   }
   return size;
 };
+
 function isNested(arr) {
   for (const el of arr) {
     if (Array.isArray(el)) {

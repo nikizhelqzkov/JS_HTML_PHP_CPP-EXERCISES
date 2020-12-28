@@ -16,7 +16,7 @@ function final(){
     body.style.textAlign =  'center';
 }
 let name = prompt("What's your name? ");
-if (name == null) {
+if (!name) {
   alert('Hello stranger!');
 } else {
   alert('Hello ' + name);

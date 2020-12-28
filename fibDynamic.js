@@ -15,4 +15,4 @@ const fib2 = (n) => {
 
 
 console.log(fib(1476));
-console.log(fib2(1476));
+console.log(fib2(1477));
