@@ -53,7 +53,7 @@ function processData(input) {
       }
     } else if (Array.isArray(elem)) {
       if (isNested(elem)) {
-        result.push(nestingArr(elem));
+        result.push(elem.flat(Infinity));
       } else {
         result.push(elem.sort());
       }
@@ -67,6 +67,18 @@ function processData(input) {
   console.log(JSON.stringify(result));
 }
 processData(
-  "[1,{'Pesho':3},{'pesho':52},4,'abz',function (el){return (el+1);},[1,2,3,[4,5]],['b',585,845,71,'gs'],895]"
+  "[1,{'Pesho':3},{'pesho':52},4,'abz',function (el){return (el+1);},[1,2,3,[4,[6,7,[5,'9','bgf']]]],['b',585,845,71,'gs'],895]"
 );
-processData("['test', 1, 'world', '42', 2]");
+processData(
+  '[1, "123456789", [1, 2, [3, 4]], function(a) { return a; }, { "name": "Martin" }, 3, 4, 5, function(a) { return (a + 1)}]'
+);
+let a = [
+  1,
+  2,
+  3,
+  4,
+  [5, 6, 8, [7, 9, 5, 8, [2, 5, 5, [2, 545, 4], 521, 8], 5525], 288],
+  9,
+  6,
+];
+console.log(a.flat(Infinity));
