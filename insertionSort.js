@@ -12,5 +12,5 @@ const insertionSort = (arr) =>{
     
 }
 
+
 insertionSort(arr);
-console.log(...arr)
