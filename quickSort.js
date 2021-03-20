@@ -1,6 +1,6 @@
-let arr = [1, 23, 5, 2, 56, 23, 6, 5, 5, 56, 23, 56, 5, 5412, 52, 3, 5];
 
-const Partition = (arr, start, end) => {
+
+export const Partition = (arr, start, end) => {
     let middle = parseInt((start + end) / 2)
     let pivot = arr[middle];
     let i = start, j = end;
@@ -23,7 +23,7 @@ const Partition = (arr, start, end) => {
     return i;
 }
 
-const qSort = (arr, start, end) => {
+export const qSort = (arr, start, end) => {
     let len = arr.length - 1;
     if (len <= 1) {
         return;
@@ -38,8 +38,8 @@ const qSort = (arr, start, end) => {
         qSort(arr, pivotIndex, end);
     }
 }
-const quickSort = (arr)=>{
+export const quickSort = (arr)=>{
     qSort(arr,0,arr.length-1);
 } 
-quickSort(arr);
-console.log(...arr)
+// quickSort(arr);
+// console.log(...arr)
