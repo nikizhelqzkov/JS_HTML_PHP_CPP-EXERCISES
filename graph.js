@@ -68,6 +68,7 @@ graph.addEdge(1, 2);
 graph.addEdge(1, 3);
 graph.addEdge(2, 4);
 graph.addEdge(2, 5);
+graph.addEdge(2, 7);
 graph.addEdge(2, 6);
 console.log(graph.Adg());
 const bfs = (V) => {
@@ -107,4 +108,4 @@ const bfs = (V) => {
   }
   return p;
 };
-console.log(bfs(graph));
+console.log(bfs(graph)); 
