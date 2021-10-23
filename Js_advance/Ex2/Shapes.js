@@ -30,7 +30,7 @@ Point.prototype.getDistance = function (point2) {
 };
 
 //Circle methods
-Circle.prototype = Point.prototype;
+Circle.prototype = Object.create(Point.prototype);
 Circle.prototype.intersects = function (circle2) {
   let p2 = new Point(circle2.x, circle2.y);
   let dist = this.getDistance(p2);
@@ -44,7 +44,7 @@ Circle.prototype.getArea = function () {
 };
 
 //Rectangle methods
-Rectangle.prototype = Point.prototype;
+Rectangle.prototype =  Object.create(Point.prototype);
 Rectangle.prototype.getPerimeter = function () {
   return 2 * (this.a + this.b);
 };
@@ -65,7 +65,7 @@ Rectangle.prototype.getBiggestCircle = function () {
 };
 
 //Prism methods
-Prism.prototype = Rectangle.prototype;
+Prism.prototype =  Object.create(Rectangle.prototype);
 Prism.prototype.getVolume = function () {
   let rectangleArea = this.getArea();
   return rectangleArea * this.c;
