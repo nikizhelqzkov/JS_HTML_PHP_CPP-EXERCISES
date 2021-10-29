@@ -1,4 +1,4 @@
-function uniqueElements(list, fn) {
+function notUniqueElements(list, fn) {
   return list.filter(function (elem) {
     return !fn.call(undefined, elem);
   });
