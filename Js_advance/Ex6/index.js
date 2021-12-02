@@ -4,23 +4,30 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 app.use(express.json());
 
-
 let id = 0;
 const events = {};
 const bookSpot = {};
 
+function* gen() {
+  let index = 0;
+  while (true) {
+    yield index++;
+  }
+}
+const idGen = gen();
 
 app.post("/event", (req, res) => {
-    const data = req.body;
-    console.log(data);
-    const {name,capacity} = data;
-  if(!name || name===''){
-      return res.status(400).send("Empty name");
+  const data = req.body;
+  console.log(data);
+  const { name, capacity } = data;
+  if (!name || name === "") {
+    return res.status(400).send("Empty name");
   }
-  if(!capacity || capacity<=0){
-      return res.status(400).send("Cappacity must be positive");
+  if (!capacity || capacity <= 0) {
+    return res.status(400).send("Cappacity must be positive");
   }
-  ++id;
+//   ++id;
+  const id = idGen.next().value;
   events[id] = { ...data };
   res.json({ id, ...data });
 });
@@ -36,8 +43,8 @@ app.post("/event/:id/book-spot", (req, res) => {
     if (!events[id]) {
       throw new Error("Not valid id");
     }
-    
-    if (bookSpot[id] &&  events[id].capacity <= bookSpot[id].length) {
+
+    if (bookSpot[id] && events[id].capacity <= bookSpot[id].length) {
       throw new Error("Not enough places!");
     }
   } catch (e) {
