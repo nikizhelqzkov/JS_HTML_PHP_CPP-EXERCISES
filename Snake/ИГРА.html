@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Змия</title>
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+    }
+
+    /*Задаваме основните неща в HTML&CSS*/
+    body {
+      background: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /*Границата около полето за игрене*/
+    canvas {
+      border: 1px solid white;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Правим полето -->
+  <canvas width="400" height="400" id="game"></canvas>
+  <!-- Скриптътт с играта е надолу -->
+  <script>
+    // Полето на което ще става всичко
+    var canvas = document.getElementById('game');
+    // Класическа змия
+    var context = canvas.getContext('2d');
+    // Размер на една клетка (16px е размера)
+    var grid = 16;
+    // Скорост на змията
+    var count = 0;
+    // Самата Змия
+    var snake = {
+      // място където змията ще се появи
+      x: 160,
+      y: 160,
+      // Скорост на змията — във всеки нов  кадър змията се мести по X или Y . На стартът ще се движи горизонтално (или хоризонталнo, не съм сигурен как е)
+      // затова скороста по Y е 0
+      dx: grid,
+      dy: 0,
+      // Дърпаме зад себе си своята опашка (за сега празна)
+      cells: [],
+      // Стартовата дължина - 4 клетки
+      maxCells: 4
+    };
+    // Храната
+    var apple = {
+      // Начальни кординати на храната
+      x: 320,
+      y: 320
+    };
+    // Функция която ни дава случайно число
+    function getRandomInt(min, max) {
+      return Math.floor(Math.random() * (max - min)) + min;
+    }
+    // Цикл в който вътре всичко ще става
+    function loop() {
+      // Забавя играта от 60 FPS до 4
+      requestAnimationFrame(loop);
+      //кодът се изпълнява само один път от четири в това е смисълът на забавянето на кадри. А ако 
+      //променливата count е по-малко от 4 кодът не се изпълнява
+      if (++count < 4) {
+        return;
+      }
+      // Обнуляваме променливата на скороста
+      count = 0;
+      // Чистим полето за играене
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      // Мърдаме змията с нужната скорост
+      snake.x += snake.dx;
+      snake.y += snake.dy;
+      // Ако змията е стигнала края на полето по хоризонтала продължаваме от противоположната страна
+      if (snake.x < 0) {
+        snake.x = canvas.width - grid;
+      }
+      else if (snake.x >= canvas.width) {
+        snake.x = 0;
+      }
+      // същото но по вертикала
+      if (snake.y < 0) {
+        snake.y = canvas.height - grid;
+      }
+      else if (snake.y >= canvas.height) {
+        snake.y = 0;
+      }
+      // Главата винаги е отпред. За това и добавяме кординатите в началото на масив който отговаря за змията
+      snake.cells.unshift({ x: snake.x, y: snake.y });
+      // Веднага след това изтриваме последният елемент от масива на змията защото тя се движи и постояно освобождава клетки след себе си
+      if (snake.cells.length > snake.maxCells) {
+        snake.cells.pop();
+      }
+      // Рисуваме храната - червен квадрат
+      context.fillStyle = 'red';
+      context.fillRect(apple.x, apple.y, grid - 1, grid - 1);
+      // Едно движение на змията — един нов зелен квадрат
+      context.fillStyle = 'green';
+      // Обработваме всеки елемент на змията
+      snake.cells.forEach(function (cell, index) {
+        // За да създадем ефект че има клетки (това е илюзия (не)), правим зелени квадратчета 
+        //които са по-малки от змията на един пиксел за да около тях да се образува черна (като негър) граница
+        context.fillRect(cell.x, cell.y, grid - 1, grid - 1);
+        // Ако змията стигне до ябълката... Press F to Respect APPLE!!!
+        if (cell.x === apple.x && cell.y === apple.y) {
+          // увеличаваме дължината на змията (ако змията стигне до ябълката)
+          snake.maxCells++;
+          // Рисуваме нова ябълка
+          // Помним че размера на картинката ни е 400х400 пиксела. Разделяме на 25 части
+          apple.x = getRandomInt(0, 25) * grid;
+          apple.y = getRandomInt(0, 25) * grid;
+        }
+        // Проверка дали змията сама се е доконсала с себе си
+        // За това гледаме целия масив и гледаме, имаме ли в масива с змията две клетки с еднакви координати 
+        for (var i = index + 1; i < snake.cells.length; i++) {
+          // Ако има такива клетки — започваме играта отново
+          if (cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
+            // Задаваме стартови параметри на основните променливи
+            snake.x = 160;
+            snake.y = 160;
+            snake.cells = [];
+            snake.maxCells = 4;
+            snake.dx = grid;
+            snake.dy = 0;
+            // Поставяме ябълката в случайно място
+            apple.x = getRandomInt(0, 25) * grid;
+            apple.y = getRandomInt(0, 25) * grid;
+          }
+        }
+      });
+    }
+    // Гледаме какви са клавишите които се натискат, и реагираме на тях по нужния начин
+    document.addEventListener('keydown', function (e) {
+      // Дополнительно проверяем такой момент: если змейка движется, например, влево, то ещё одно нажатие влево или вправо ничего не поменяет — змейка продолжит двигаться в ту же сторону, что и раньше. Это сделано для того, чтобы не разворачивать весь массив со змейкой на лету и не усложнять код игры.
+      // Стрелка влево
+      // Ако е натиснато копчето "наляво" (стрелката), и при това змията не се движи по хоризонтала
+      if (e.which === 37 && snake.dx === 0) {
+        // то и даваме движение по хоризонтала - наляво а вертикалното — го спираме
+        // Същата логика и при останалите копчета
+        snake.dx = -grid;
+        snake.dy = 0;
+      }
+      // Стрелката нагоре
+      else if (e.which === 38 && snake.dy === 0) {
+        snake.dy = -grid;
+        snake.dx = 0;
+      }
+      // Стрелка надясно
+      else if (e.which === 39 && snake.dx === 0) {
+        snake.dx = grid;
+        snake.dy = 0;
+      }
+      // Стрелка надолу
+      else if (e.which === 40 && snake.dy === 0) {
+        snake.dy = grid;
+        snake.dx = 0;
+      }
+    });
+    // Пускаме играта
+    requestAnimationFrame(loop);
+  </script>
+</body>
+
+</html>

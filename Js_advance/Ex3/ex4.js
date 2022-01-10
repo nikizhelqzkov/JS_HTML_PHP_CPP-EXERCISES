@@ -15,5 +15,7 @@ function cmpBoolean(a, b) {
 function cmp2(a, b) {
   return a > b ? true : false;
 }
+// debugger;
 console.log(smallestElement([1, 2, 6, 2, 8, 2, 4, 59, -5, 6, 4], cmp));
 console.log(smallestElement([1, 2, 6, 2, 8, 2, 4, 59, -5, 6, 4], cmp2));
+
