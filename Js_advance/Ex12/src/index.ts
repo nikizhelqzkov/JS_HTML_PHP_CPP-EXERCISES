@@ -27,7 +27,7 @@ export class AppC extends LitElement {
   selectedUser: IUser | null = null;
 
   headerTemplate() {
-    return html`<header>User list</header>`;
+    return html`<header><h2>User list</h2></header>`;
   }
 
   mainTemplate() {

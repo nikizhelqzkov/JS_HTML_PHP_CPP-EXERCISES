@@ -26,16 +26,15 @@ export class User extends LitElement {
   //       console.log(e.target);
   //   }
   handleClick = () => {
-    console.log(this.user.userId);
     const event = new CustomEvent("selectUser", { bubbles: true, composed: true ,detail: this.user});
     this.dispatchEvent(event);
   };
   render() {
     return html`<ul class="user-list" @click=${this.handleClick}>
-      <li>${this.user.userId}</li>
-      <li>${this.user.name}</li>
-      <li>${this.user.username}</li>
-      <li>${this.user.email}</li>
+      <li>User id: ${this.user.id}</li>
+      <li>Name: ${this.user.name}</li>
+      <li>Username: ${this.user.username}</li>
+      <li>Email: ${this.user.email}</li>
     </ul>`;
   }
 }
