@@ -5,11 +5,6 @@ import { IUser } from "./interfaces/user";
 
 @customElement("user-list")
 export class UserList extends LitElement {
-  static styles = css`
-    :host {
-    }
-  `;
-
   constructor() {
     super();
 

@@ -5,9 +5,6 @@ import { IUser } from "./interfaces/user";
 @customElement("user-component")
 export class User extends LitElement {
   static styles = css`
-    :host {
-    }
-
     .user-list {
       list-style-type: none;
       border: 1px solid #000;
@@ -22,9 +19,6 @@ export class User extends LitElement {
   @property()
   user!: IUser;
 
-  //   private handleClick(e:Event){
-  //       console.log(e.target);
-  //   }
   handleClick = () => {
     const event = new CustomEvent("selectUser", { bubbles: true, composed: true ,detail: this.user});
     this.dispatchEvent(event);

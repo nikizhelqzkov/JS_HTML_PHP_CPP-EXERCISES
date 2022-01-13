@@ -1,26 +1,19 @@
 import { LitElement, css, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import { IUser, IUserDetail } from "./interfaces/user";
+import { IUserDetail } from "./interfaces/user";
 
 @customElement("user-details")
 export class UserDetails extends LitElement {
   static styles = css`
-    :host {
-    }
-    .user-detail__container ul{
+    .user-detail__container ul {
       list-style-type: none;
-      background:#fafade;
+      background: #fafade;
       padding: 1rem;
     }
-    h4{ 
+    h4 {
       text-align: center;
     }
-    }
   `;
-  // constructor() {
-  //   super();
-  //
-  // }
 
   @property()
   user!: IUserDetail;

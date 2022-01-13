@@ -7,8 +7,6 @@ import { IUser } from "./interfaces/user";
 @customElement("app-component")
 export class AppC extends LitElement {
   static styles = css`
-    :host {
-    }
     header {
       text-align: center;
     }
