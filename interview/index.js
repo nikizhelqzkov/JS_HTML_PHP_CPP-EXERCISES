@@ -19,14 +19,6 @@ class Bus {
 
   //weight, name, fuelType, capacity
 }
-const bus = new Bus(5000, "Mercedes", "Diesel", 50);
-try {
-  const hasFree = bus.hasFreeSeets();
-  ``;
-} catch (error) {
-  console.log(error);
-}
-// console.log(bus.hasFreeSeets());
 class Train {
   constructor(weight, name, parts, capacity) {
     this.weight = weight;
@@ -45,6 +37,10 @@ class Train {
       console.log(error);
     }
   }
-
-  //weight, name, fuelType, capacity
+}
+const bus = new Bus(5000, "Mercedes", "Diesel", 50);
+try {
+  const hasFree = bus.hasFreeSeets();
+} catch (error) {
+  console.log(error);
 }
