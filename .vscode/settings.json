@@ -1,5 +1,7 @@
 {
     "files.associations": {
+        "*.jsx": "javascriptreact",
+        "*.pl": "prolog",
         "ostream": "cpp",
         "cctype": "cpp",
         "cmath": "cpp",
@@ -44,7 +46,24 @@
         "functional": "cpp",
         "list": "cpp",
         "unordered_map": "cpp",
-        "xhash": "cpp"
+        "xhash": "cpp",
+        "array": "cpp",
+        "atomic": "cpp",
+        "*.tcc": "cpp",
+        "chrono": "cpp",
+        "clocale": "cpp",
+        "condition_variable": "cpp",
+        "cstdarg": "cpp",
+        "cwctype": "cpp",
+        "deque": "cpp",
+        "algorithm": "cpp",
+        "memory_resource": "cpp",
+        "optional": "cpp",
+        "ratio": "cpp",
+        "string_view": "cpp",
+        "mutex": "cpp",
+        "sstream": "cpp",
+        "thread": "cpp"
     },
     "liveServer.settings.port": 5501
 }
