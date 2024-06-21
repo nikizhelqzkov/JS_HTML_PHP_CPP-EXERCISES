@@ -20,3 +20,4 @@ function bitCounting(n) {
 }
 
 console.log(bitCounting(956248651));
+//
