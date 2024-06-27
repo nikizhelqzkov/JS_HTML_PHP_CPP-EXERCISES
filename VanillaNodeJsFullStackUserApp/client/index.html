@@ -10,13 +10,31 @@
 </head>
 
 <body>
-    <!-- register form  -->
-    <form action="#" method="POST">
-        <input type="text" name="username" id="username" placeholder="Username">
-        <input type="password" name="password" id="password" placeholder="Password">
-        <input type="email" name="email" id="email" placeholder="Email">
-        <button type="submit">Register</button>
-    </form>
+    <header>
+        <img src="./images/logo.svg" alt="Eventique" width=204 height="36" />
+    </header>
+    <main>
+        <div class="left-side">
+            <div class="register">
+
+                <h2 class="register-header">
+                    Регистрация
+                </h2>
+                <p class="register-description">Регистрирайте се сега, за да получите достъп до ексклузивно съдържание и
+                    персонализирани оферти</p>
+                <form action="#" method="POST" class="form">
+                    <label for="username">Име <span class="required-star">*</span></label>
+                    <input type="text" name="username" id="username" />
+                    <label for="username">Email <span class="required-star">*</span></label>
+                    <input type="email" name="email" id="email" />
+                    <label for="username">Парола <span class="required-star">*</span></label>
+                    <input type="password" name="password" id="password" />
+                    <input type="submit" value="Регистрирай се" />
+                </form>
+            </div>
+        </div>
+        <aside class="background-image-container"></aside>
+    </main>
 </body>
 
 </html>

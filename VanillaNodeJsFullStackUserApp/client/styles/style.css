@@ -1,28 +1,138 @@
+* {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+}
+
+header {
+  margin-left: 56px;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.register {
+  width: 480px;
+  margin: auto;
+}
+
+.register .register-header {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.register .register-description {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 32px;
+}
 form {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    margin: 0 auto;
-    margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  width: 480px;
+  margin: auto;
 }
 input {
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+  padding: 12px;
+  margin-top: 8px;
+  border: 1px solid #b6b6b6;
+  border-radius: 8px;
+  height: 48px;
+  margin-bottom: 24px;
 }
-button {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
+
+input[type="submit"] {
+  background-color: #4a43ec;
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #3b31b1;
 }
 
 /*make responsive*/
 @media (max-width: 768px) {
-    form {
-        width: 100%;
-    }
+  form {
+    width: 100%;
+  }
 }
+
+main {
+  height: 79vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+main .left-side,
+main .background-image-container {
+  width: 50%;
+}
+
+main .background-image-container {
+  background-image: url("../images/register-background.svg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+.required-star {
+  color: #eb5757;
+}
+
+.error {
+  color: #eb5757;
+  font-size: 14px;
+  margin-top: -20px;
+  margin-bottom: 20px;
+}
+
+.success {
+  width: 750px;
+  margin: auto;
+  text-align: center;
+}
+
+.success .success-logo img {
+  width: 100%;
+}
+
+.success .success-header {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 32px;
+    margin-top: 32px;
+}
+
+.success .success-link {
+    font-size: 16px;
+    font-weight: 700;
+    display: block;
+    padding: 12px 24px;
+    background-color: #4A43EC;
+    color: #fff;
+    border-radius: 8px;
+    text-align: center;
+    width: 280px;
+    margin: 0 auto;
+    height: 48px;
+    text-decoration: none;
+    line-height: 24px;
+}
+
+.success .success-link:hover {
+    background-color: #3B31B1;
+}
+

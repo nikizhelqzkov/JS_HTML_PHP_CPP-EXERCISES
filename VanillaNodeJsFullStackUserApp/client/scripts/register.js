@@ -7,7 +7,6 @@ function validateEmail(email) {
 const form = document.querySelector("form");
 //client validation on on input fields
 
-// I want on out of focus to show the error message for input fields
 const username = document.querySelector("#username");
 const email = document.querySelector("#email");
 const password = document.querySelector("#password");
@@ -19,7 +18,7 @@ username.addEventListener("blur", () => {
     }
     const errorElement = document.createElement("div");
     errorElement.innerHTML =
-      "Username is required with minimum length of 3 characters";
+      "Потребителското име е задължително и трябва да е поне 3 символа дълго";
     errorElement.style.color = "red";
     errorElement.classList.add("error");
     username.after(errorElement);
@@ -36,7 +35,7 @@ email.addEventListener("blur", () => {
       document.querySelector(".error").remove();
     }
     const errorElement = document.createElement("div");
-    errorElement.innerHTML = "Invalid email";
+    errorElement.innerHTML = "Моля въведете валиден имейл адрес";
     errorElement.style.color = "red";
     errorElement.classList.add("error");
     email.after(errorElement);
@@ -54,7 +53,7 @@ password.addEventListener("blur", () => {
     }
     const errorElement = document.createElement("div");
     errorElement.innerHTML =
-      "Password is required and should be at least 6 characters long";
+      "Паролата е задължителна и трябва да е поне 6 символа дълга";
     errorElement.style.color = "red";
     errorElement.classList.add("error");
     password.after(errorElement);
@@ -103,11 +102,13 @@ form.addEventListener("submit", async (e) => {
     if (document.querySelector(".error")) {
       document.querySelector(".error").remove();
     }
-    const successElement = document.createElement("div");
-    successElement.style.color = "green";
-    successElement.classList.add("success");
-    successElement.innerHTML = "User created successfully!";
-    form.before(successElement);
+
+    let pathName = location.pathname;
+    let path = pathName.split("/");
+    path.pop();
+    path = path.join("/");
+    path = path + "/success.html";
+    location.pathname = path;
 
     username.value = "";
     email.value = "";
