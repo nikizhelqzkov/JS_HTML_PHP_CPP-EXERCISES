@@ -81,6 +81,16 @@ main .background-image-container {
   width: 50%;
 }
 
+@media (max-width: 1366px) {
+  main .background-image-container {
+    display: none;
+  }
+
+  main .left-side {
+    width: 100%;
+  }
+}
+
 main .background-image-container {
   background-image: url("../images/register-background.svg");
   background-size: cover;
@@ -110,29 +120,28 @@ main .background-image-container {
 }
 
 .success .success-header {
-    font-size: 48px;
-    font-weight: 700;
-    margin-bottom: 32px;
-    margin-top: 32px;
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 32px;
+  margin-top: 32px;
 }
 
 .success .success-link {
-    font-size: 16px;
-    font-weight: 700;
-    display: block;
-    padding: 12px 24px;
-    background-color: #4A43EC;
-    color: #fff;
-    border-radius: 8px;
-    text-align: center;
-    width: 280px;
-    margin: 0 auto;
-    height: 48px;
-    text-decoration: none;
-    line-height: 24px;
+  font-size: 16px;
+  font-weight: 700;
+  display: block;
+  padding: 12px 24px;
+  background-color: #4a43ec;
+  color: #fff;
+  border-radius: 8px;
+  text-align: center;
+  width: 280px;
+  margin: 0 auto;
+  height: 48px;
+  text-decoration: none;
+  line-height: 24px;
 }
 
 .success .success-link:hover {
-    background-color: #3B31B1;
+  background-color: #3b31b1;
 }
-
